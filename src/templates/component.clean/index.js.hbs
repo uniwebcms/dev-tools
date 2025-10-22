@@ -1,0 +1,12 @@
+import React from "react";
+
+export default function {{componentName}}({ content, params, block }) {
+  const { title, paragraphs } = content.main;
+
+  return (
+    <>
+      {title && <h2>{title}</h2>}
+      {paragraphs?.[0] && <p>{paragraphs[0]}</p>}
+    </>
+  );
+}

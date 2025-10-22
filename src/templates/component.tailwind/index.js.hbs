@@ -1,0 +1,76 @@
+import React from "react";
+import { SafeHtml } from "@uniwebcms/module-sdk";
+
+/**
+ * {{componentName}} component
+ * 
+ * Displays content with configurable layout options.
+ * 
+ * @param {Object} props - Component props
+ * @param {Object} props.content - Structured content from content creator
+ * @param {Object} props.params - Configuration parameters from content creator
+ * @param {Object} props.block - Persistent block state, page, site, and methods
+ */
+export default function {{componentName}}({ content, params, block }) {
+  // Extract content
+  const { title, paragraphs } = content.main;
+  const items = content.items;
+  
+  // Extract parameters with defaults
+  const { 
+    layout = "grid", 
+    columns = 3, 
+    emphasis = "balanced" 
+  } = params;
+
+  const containerClass = `w-full ${
+    layout === "grid" 
+      ? "grid gap-6 " + (columns === 1 ? "grid-cols-1" : columns === 2 ? 
+        "grid-cols-1 md:grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3")
+      : layout === "list" 
+        ? "flex flex-col space-y-6" 
+        : "flex overflow-x-auto space-x-6" 
+  }`;
+
+  // Render the items based on the selected layout
+  const renderItems = () => {
+    if (items.length === 0) return null;
+
+    return (
+      <div className="items-container">
+        {items.map((item, index) => (
+          <div key={index} className="item">
+            {item.images?.[0] && (
+              <div className="item-image">
+                <img src={item.images[0].src} alt={item.images[0].alt || ""} />
+              </div>
+            )}
+            
+            <div className="item-content">
+              {item.title && <h3>{item.title}</h3>}
+              {item.paragraphs?.[0] && <SafeHtml>{item.paragraphs[0]}</SafeHtml>}
+              {item.links?.[0] && (
+                <a href={item.links[0].url}>{item.links[0].text}</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <div className={containerClass}>
+      {title && <h2>{title}</h2>}
+      {paragraphs?.[0] && <p className="description">{paragraphs[0]}</p>}
+      {renderItems()}
+    </div>
+  );
+}
+
+// Optional: Define default block state
+// {componentName}.blockDefaults = {
+//   state: {
+//     // Default state values
+//   }
+// };

@@ -1,0 +1,12 @@
+title: Homepage
+description: The homepage of the website
+
+sections:
+  - hero
+  - teaser
+  - benefits
+  - testimonials
+  - funnel
+  - showcase
+  - use-cases
+  - cta

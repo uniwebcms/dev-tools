@@ -1,0 +1,4 @@
+---
+component: Hero
+preset: simple
+---

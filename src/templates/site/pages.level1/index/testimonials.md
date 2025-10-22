@@ -1,0 +1,4 @@
+---
+component: Testimonials
+preset: simple
+---

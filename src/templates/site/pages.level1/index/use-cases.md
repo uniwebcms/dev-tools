@@ -1,0 +1,4 @@
+---
+component: UseCases
+preset: simple
+---

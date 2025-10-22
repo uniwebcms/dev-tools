@@ -1,0 +1,4 @@
+---
+component: Benefits
+preset: simple
+---

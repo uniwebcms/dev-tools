@@ -109,9 +109,9 @@ export async function init(name, site, module, template, pm, noGit, dev) {
       version: currentVersion,
     } = cliContext.options;
 
-    // const toolkitName = "@uniwebcms/site-content-collector";
+    // const toolkitName = "@uniwebcms/framework";
     const toolkitVersion = dev
-      ? `file:${os.homedir()}/Proximify/site-content-collector`
+      ? `file:${os.homedir()}/Proximify/framework`
       : "^" + (latestVersion || currentVersion);
 
     const options = {

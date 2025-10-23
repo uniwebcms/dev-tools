@@ -1,8 +1,8 @@
 /**
  * For configuration details and customization options, see:
- * https://github.com/uniwebcms/site-content-collector/blob/main/docs/webpack-config.md
+ * https://github.com/uniwebcms/framework/blob/main/docs/webpack-config.md
  */
-import { createConfig } from "@uniwebcms/site-content-collector";
+import { createConfig } from "@uniwebcms/framework";
 import webpack from "webpack";
 
 export default async (_, argv) => createConfig(webpack, argv, import.meta.url);

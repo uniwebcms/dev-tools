@@ -992,8 +992,8 @@ export default [
   },
   {
     "module": "project",
-    "name": "init",
-    "description": "Initialize a new Uniweb project.",
+    "name": "create",
+    "description": "Create a new Uniweb project.",
     "params": [
       {
         "name": "name",

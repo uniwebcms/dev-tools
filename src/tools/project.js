@@ -79,7 +79,7 @@ export async function check() {
 }
 
 /**
- * Initialize a new Uniweb project.
+ * Create a new Uniweb project.
  *
  * @param {string} name - Project name
  * @param {string} [site=""] - Name of a site to add ("/" for root site)
@@ -89,7 +89,7 @@ export async function check() {
  * @param {boolean} [noGit=false] - Skip git initialization
  * @param {boolean} [dev=false] - Use development dependencies
  */
-export async function init(name, site, module, template, pm, noGit, dev) {
+export async function create(name, site, module, template, pm, noGit, dev) {
   try {
     const latestVersion = await check();
 

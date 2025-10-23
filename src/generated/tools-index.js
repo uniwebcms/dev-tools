@@ -37,7 +37,7 @@ export { movePage } from "../tools/page.js";
 export { removePage } from "../tools/page.js";
 export { locatePage } from "../tools/page.js";
 export { check } from "../tools/project.js";
-export { init } from "../tools/project.js";
+export { create } from "../tools/project.js";
 export { start } from "../tools/project.js";
 export { listSites } from "../tools/project.js";
 export { listModules } from "../tools/project.js";

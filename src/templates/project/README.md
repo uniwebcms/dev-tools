@@ -231,6 +231,27 @@ The Framework works standalone or integrates with the full ecosystem as your nee
 
 - Node.js ≥18.0.0
 
+## Optional: Connect to GitHub
+
+After creating your project locally, you can push it to GitHub:
+
+1. Create an empty repository on GitHub
+2. In your project directory:
+
+```bash
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/username/project-name.git
+   git push -u origin main
+```
+
+Alternatively, use the GitHub CLI:
+
+```bash
+gh repo create project-name --source=. --public
+git push -u origin main
+```
+
 ## Learn More
 
 - 🏠 **[Framework Website](https://framework.uniweb.app)** – Guides, blog, and comprehensive resources

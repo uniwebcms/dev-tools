@@ -27,7 +27,7 @@ We recommend installing the Uniweb CLI globally as your first step:
 
 ```bash
 # Install the Uniweb CLI globally
-npm install -g @uniwebcms/toolkit
+npm install -g @uniwebcms/framework
 ```
 
 This enables you to initialize and manage Uniweb projects from any directory, with commands that intelligently detect your context and project structure.
@@ -60,20 +60,20 @@ For a completely fresh start with standard options:
 
 ```bash
 # Create a git repository with no sites or libraries
-uniweb init my-project
+uniweb create my-project
 ```
 
 Alternatively, start with a site and/or library:
 
 ```bash
 # Create a new project with both a site and component library
-uniweb init my-project --module M1 --site test
+uniweb create my-project --module M1 --site test
 
 # Or create just a content-focused site (single root site)
-uniweb init my-project --site /
+uniweb create my-project --site /
 ```
 
-> By default, the site and module dependencies are auto installed with `npm install`. To use a different project manager, set the desired one with `--pm [NAME]`. Options are `npm`, `yarn`, `yarn-pnp`, `pnpm`, and `bun`. For example, `uniweb init my-project --pm yarn-pnp`.
+> By default, the site and module dependencies are auto installed with `npm install`. To use a different project manager, set the desired one with `--pm [NAME]`. Options are `npm`, `yarn`, `yarn-pnp`, `pnpm`, and `bun`. For example, `uniweb create my-project --pm yarn-pnp`.
 
 Next:
 
@@ -240,7 +240,3 @@ This project is licensed under GPL-3.0-or-later.
 You are free to use and modify this repository, but if you distribute it (as a template or software package), you must also release your modifications under the same license.
 
 **Important:** Websites created using Uniweb are NOT considered distributions and do not need to be licensed under GPL. The content and sites you build with Uniweb remain yours to license as you choose.
-
----
-
-Built with ❤️ by the Uniweb Community. Learn more at [uniwebcms.com](https://uniwebcms.com).

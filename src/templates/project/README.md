@@ -248,7 +248,7 @@ After creating your project locally, you can push it to GitHub:
 Alternatively, use the GitHub CLI:
 
 ```bash
-gh repo create project-name --source=. --public
+gh repo create project-name --source=.
 git push -u origin main
 ```
 

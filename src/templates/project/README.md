@@ -4,22 +4,6 @@ A web development framework built on separation of concerns. **Content** lives i
 
 This architecture means content teams and developers work independently – content editors compose pages using intuitive components, developers build those components.
 
-## Monorepo Organization
-
-The project file structure supports one optional root level site, multiple sites under `sites/`, and multiple Foundation modules under `src/`. Each site and module represents an **independent workspace**, with its own dependencies. For example:
-
-```
-my-project/
-├── package.json           # Root package.json with workspace config
-├── uniweb.config.js       # Project-level configuration
-├── sites/                 # Site workspaces
-│   ├── marketing/         # Marketing site
-│   └── docs/              # Documentation site
-└── src/                   # Component library workspaces
-    ├── corporate/         # Corporate design Foundation
-    └── documentation/     # Documentation-focused Foundation
-```
-
 ## Core Concepts
 
 ### Sites and Foundations
@@ -48,7 +32,25 @@ Discover innovative solutions for your business.
 
 At runtime, the Framework connects your content with the appropriate component from your Foundation.
 
-## Project Types
+## Monorepo Organization
+
+The project file structure supports one optional root level site, multiple sites under `sites/`, and multiple Foundation modules under `src/`. Each site and module represents an **independent workspace**, with its own dependencies. For example:
+
+```
+my-project/
+├── package.json           # Root package.json with workspace config
+├── uniweb.config.js       # Project-level configuration
+├── sites/                 # Site workspaces
+│   ├── marketing/         # Marketing site
+│   └── docs/              # Documentation site
+└── src/                   # Component library workspaces
+    ├── corporate/         # Corporate design Foundation
+    └── documentation/     # Documentation-focused Foundation
+```
+
+## Working with Multiple Projects
+
+While a single project can contain several sites and modules, you may also want to consider working with several independent projects. These are different project types to consider:
 
 **Content-Only Project** (uses a remote Foundation):
 
@@ -87,7 +89,7 @@ Creates a complete example with:
 
 ## Optional Setup Steps
 
-### Connect local repository to GitHub
+### Connect local project to GitHub
 
 Create an **empty repository** on GitHub and then:
 
@@ -98,7 +100,7 @@ git remote add origin https://github.com/[user-name]/[project-name].git
 git push -u origin main
 ```
 
-### Install the CLI globally
+### Install the Uniweb CLI globally
 
 Install globally for frequent use:
 

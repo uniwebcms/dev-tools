@@ -4,31 +4,21 @@ A web development framework built on separation of concerns. **Content** lives i
 
 This architecture means content teams and developers work independently – content editors compose pages using intuitive components, developers build those components.
 
-## Quick Start
+## Monorepo Organization
 
-Create a new Uniweb project with a starter template:
+The project file structure supports one optional root level site, multiple sites under `sites/`, and multiple Foundation modules under `src/`. Each site and module represents an **independent workspace**, with its own dependencies. For example:
 
-```bash
-npx @uniwebcms/framework@latest create my-project --template marketing
 ```
-
-This creates a complete example with:
-
-- A Foundation showcasing different component patterns
-- A demo site with sample pages and content
-- Components ranging from fully hardcoded to fully parameterized
-
-Start the development server:
-
-```bash
-cd my-project
-npm install
-npx uniweb start
+my-project/
+├── package.json           # Root package.json with workspace config
+├── uniweb.config.js       # Project-level configuration
+├── sites/                 # Site workspaces
+│   ├── marketing/         # Marketing site
+│   └── docs/              # Documentation site
+└── src/                   # Component library workspaces
+    ├── corporate/         # Corporate design Foundation
+    └── documentation/     # Documentation-focused Foundation
 ```
-
-**Available templates:** `marketing`, `docs`, `corporate`
-
-> Want to start from scratch? Omit `--template` for a minimal project, and later add sites and modules as needed.
 
 ## Core Concepts
 
@@ -84,6 +74,17 @@ Creates a local Foundation at `src/marketing` for building custom components, pl
 npx @uniwebcms/framework@latest create my-project
 ```
 
+**Template Project** (`marketing`, `docs`, `corporate`)
+
+```bash
+npx @uniwebcms/framework@latest create my-project --template marketing
+```
+
+Creates a complete example with:
+
+- A Foundation showcasing different component patterns
+- A demo site with sample pages and content
+
 ## Optional Setup Steps
 
 ### Connect local repository to GitHub
@@ -106,24 +107,6 @@ npm install -g @uniwebcms/framework
 uniweb create my-project
 ```
 
-## Monorepo Organization
-
-The project file structure supports one optional root level site, multiple sites under `sites/`, and multiple Foundation modules under `src/`. Each site and module represents an **independent workspace**, with its own dependencies. For example:
-
-```
-my-project/
-├── package.json           # Root package.json with workspace config
-├── uniweb.config.js       # Project-level configuration
-├── sites/                 # Site workspaces
-│   ├── marketing/         # Marketing site
-│   └── docs/              # Documentation site
-└── src/                   # Component library workspaces
-    ├── corporate/         # Corporate design Foundation
-    └── documentation/     # Documentation-focused Foundation
-```
-
-> **Workspaces:** When adding sites or modules, independent project workspaces are automatically created. Each workspace maintains its own dependencies, which are auto-installed based on your preferred package manager. This is determined either from the `packageManager` field in `package.json` or inferred from your existing lock file (npm, yarn, pnpm, or bun).
-
 ## Key CLI Commands
 
 ```bash
@@ -140,6 +123,8 @@ npx uniweb page add -h        # Help for 'page add' command
 npx uniweb site publish       # Publish your site
 npx uniweb module publish     # Publish your Foundation to the registry
 ```
+
+**Workspaces:** When adding sites or modules, independent project workspaces are automatically created. Each workspace maintains its own dependencies, which are auto-installed based on your preferred package manager. This is determined either from the `packageManager` field in `package.json` or inferred from your existing lock file (npm, yarn, pnpm, or bun).
 
 ## Deployment
 
@@ -229,7 +214,7 @@ Site and module workspaces come fully pre-configured with professional developme
 - **Advanced CSS tools**: PostCSS pipeline with Tailwind CSS and essential plugins:
   - autoprefixer
   - @tailwindcss/typography
-- **Core components**: The `@uniwebcms/basic` package provides essential components like Link, Image, Icon, For, RichText, and more
+- **Core components**: The `@uniwebcms/basic` package provides essential components like Link, Image, Icon, Form, RichText, and more
 - **Production optimization**: Automatic minification, tree-shaking, code splitting, and asset optimization
 - **Developer experience**: Hot module replacement, detailed error overlays, and source maps
 

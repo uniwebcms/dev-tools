@@ -245,4 +245,4 @@ This project is licensed under GPL-3.0-or-later.
 
 You are free to use and modify this repository, but if you distribute it (as a template or software package), you must also release your modifications under the same license.
 
-**Important:** Websites created using Uniweb are NOT considered distributions and do not need to be licensed under GPL. The content and sites you build with Uniweb remain yours to license as you choose.
+**Important:** Websites and Foundations created using Uniweb are NOT considered distributions and do not need to be licensed under GPL. The content and code you build with Uniweb remain yours to license as you choose.

@@ -4,6 +4,34 @@ A web development framework built on separation of concerns. **Content** lives i
 
 This architecture means content teams and developers work independently – content editors compose pages using intuitive components, developers build those components.
 
+## Quick Start
+
+Create a new Uniweb project with a starter template:
+
+```bash
+npx @uniwebcms/framework@latest create my-project --template marketing
+```
+
+This creates a complete example with:
+
+- A Foundation showcasing different component patterns
+- A demo site with sample pages and content
+- Components ranging from fully hardcoded to fully parameterized
+
+Start the development server:
+
+```bash
+cd my-project
+npm install
+npx uniweb start
+```
+
+Visit `http://localhost:3000/sites/main/` to see your site.
+
+**Available templates:** `marketing`, `docs`, `corporate`
+
+> Want to start from scratch? Omit `--template` for a minimal project, then add sites and modules as needed.
+
 ## Core Concepts
 
 ### Sites and Foundations
@@ -32,9 +60,13 @@ Discover innovative solutions for your business.
 
 At runtime, the Framework connects your content with the appropriate component from your Foundation.
 
-## Monorepo Organization
+## Workspace Organization
 
-The project file structure supports one optional root level site, multiple sites under `sites/`, and multiple Foundation modules under `src/`. Each site and module represents an **independent workspace**, with its own dependencies. For example:
+**Single project, multiple workspaces:** One project can contain multiple sites and Foundations as independent workspaces. Ideal when you to share components across Foundations, or test the same content with different Foundations.
+
+**Multiple projects:** Alternatively, create separate projects (repositories) for different sites or Foundations. Ideal for independent versioning, separate teams, or publishing Foundations to the registry.
+
+Both approaches use the same Framework tools. Here's an example of a multi-workspace project:
 
 ```
 my-project/
@@ -48,9 +80,25 @@ my-project/
     └── documentation/     # Documentation-focused Foundation
 ```
 
-## Working with Multiple Projects
+Each workspace maintains its own dependencies, which are auto-installed based on your preferred package manager (npm, yarn, pnpm, or bun).
 
-While a single project can contain several sites and modules, you may also want to consider working with several independent projects. These are different project types to consider:
+## Project Types
+
+**Template Project** (recommended for learning):
+
+```bash
+npx @uniwebcms/framework@latest create my-project --template marketing
+```
+
+Includes a Foundation with example components and a demo site with sample content.
+
+**Development Project** (build your own Foundation):
+
+```bash
+npx @uniwebcms/framework@latest create my-project --site demo --module marketing
+```
+
+Creates a local Foundation at `src/marketing` for building custom components, plus a demo site for testing.
 
 **Content-Only Project** (uses a remote Foundation):
 
@@ -62,51 +110,10 @@ npx @uniwebcms/framework@latest create my-site \
 
 Ideal for content teams – no local code, just content management.
 
-**Development Project** (build your own Foundation):
-
-```bash
-npx @uniwebcms/framework@latest create my-project --site demo --module marketing
-```
-
-Creates a local Foundation at `src/marketing` for building custom components, plus a demo site for testing.
-
 **Minimal Project** (add sites/modules as needed):
 
 ```bash
 npx @uniwebcms/framework@latest create my-project
-```
-
-**Template Project** (`marketing`, `docs`, `corporate`)
-
-```bash
-npx @uniwebcms/framework@latest create my-project --template marketing
-```
-
-Creates a complete example with:
-
-- A Foundation showcasing different component patterns
-- A demo site with sample pages and content
-
-## Optional Setup Steps
-
-### Connect local project to GitHub
-
-Create an **empty repository** on GitHub and then:
-
-```sh
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/[user-name]/[project-name].git
-git push -u origin main
-```
-
-### Install the Uniweb CLI globally
-
-Install globally for frequent use:
-
-```bash
-npm install -g @uniwebcms/framework
-uniweb create my-project
 ```
 
 ## Key CLI Commands
@@ -126,52 +133,20 @@ npx uniweb site publish       # Publish your site
 npx uniweb module publish     # Publish your Foundation to the registry
 ```
 
-**Workspaces:** When adding sites or modules, independent project workspaces are automatically created. Each workspace maintains its own dependencies, which are auto-installed based on your preferred package manager. This is determined either from the `packageManager` field in `package.json` or inferred from your existing lock file (npm, yarn, pnpm, or bun).
+## Installation Options
 
-## Deployment
-
-You have multiple deployment options:
-
-### Option 1: Uniweb.app (Recommended)
-
-The easiest way to deploy your Uniweb site is through the official [Uniweb.app](https://www.uniweb.app) platform:
+**Recommended:** Use `npx` (no installation needed):
 
 ```bash
-# Login to your Uniweb account
-npx uniweb login
-
-# Publish your site
-npx uniweb site publish my-site
-
-# For your Foundation
-npx uniweb module publish my-foundation
+npx @uniwebcms/framework@latest create my-project
 ```
 
-Uniweb.app provides specialized hosting optimized for Uniweb projects with features like:
-
-- Automatic preview environments
-- Content management interface
-- Custom domain support
-- SSL certificates
-- Integrated analytics
-
-Uniweb.app is a commercial CMS platform with visual editing features, while the Uniweb framework itself remains open source.
-
-### Option 2: Custom Hosting
-
-Alternatively, you can build your site for deployment to any static hosting service:
+**Optional:** Install globally for frequent use:
 
 ```bash
-# Build for production
-npm run build
-# or
-npx uniweb build
+npm install -g @uniwebcms/framework
+uniweb create my-project
 ```
-
-The `dist` folder contains everything needed to deploy your site to:
-
-- GitHub Pages
-- Any other hosting service
 
 ## Why Uniweb Framework?
 
@@ -196,15 +171,29 @@ Build one Foundation for a vertical (documentation, marketing, corporate, medica
 
 This separation eliminates bottlenecks and lets each team focus on their expertise.
 
+## Deployment
+
+**Publish your Foundation to the registry:**
+
+```bash
+npx uniweb module publish
+```
+
+Once published, content teams can create sites using your Foundation through the Uniweb App or by linking to your published module URL.
+
+**Deploy your site:**
+
+Use the Uniweb App for integrated hosting, or build and deploy to any static host:
+
+```bash
+npx uniweb build
+```
+
+The `dist` folder contains everything needed for deployment to GitHub Pages, Netlify, Vercel, or any other static hosting service.
+
+See the [deployment guide](https://docs.framework.uniweb.app/deployment) for detailed options.
+
 ## Architecture
-
-### Module Federation
-
-Webpack technology enabling Foundations to load dynamically at runtime and share dependencies with host site. Allows Foundation updates to propagate instantly – improve Foundation, sites get update on next page load based on version strategy.
-
-### Version Strategy
-
-How sites control Foundation updates: automatic (all updates), minor-only (minor + patch), patch-only (patch only), or pinned (no updates). Set in backend configuration evaluated at runtime.
 
 ### Pre-Configured Development Environment
 
@@ -213,14 +202,20 @@ Site and module workspaces come fully pre-configured with professional developme
 - **Modern JavaScript ecosystem**: Webpack, Babel, and ESM module support with zero configuration
 - **TypeScript integration**: Complete TypeScript support with optimized tsconfig defaults
 - **React development**: Built-in React, JSX processing, and router with automatic React imports
-- **Advanced CSS tools**: PostCSS pipeline with Tailwind CSS and essential plugins:
-  - autoprefixer
-  - @tailwindcss/typography
+- **Advanced CSS tools**: PostCSS pipeline with Tailwind CSS and essential plugins
 - **Core components**: The `@uniwebcms/basic` package provides essential components like Link, Image, Icon, Form, RichText, and more
 - **Production optimization**: Automatic minification, tree-shaking, code splitting, and asset optimization
 - **Developer experience**: Hot module replacement, detailed error overlays, and source maps
 
-This comprehensive setup eliminates hours of configuration work and maintenance, allowing you to focus immediately on building components and content rather than wrestling with build tools. While the default configuration covers most common needs, all aspects can be customized and extended as your project requirements evolve.
+This comprehensive setup eliminates hours of configuration work, allowing you to focus immediately on building components rather than wrestling with build tools. While the default configuration covers most common needs, all aspects can be customized as your project requirements evolve.
+
+### Module Federation
+
+Webpack technology enabling Foundations to load dynamically at runtime and share dependencies with host sites. Allows Foundation updates to propagate instantly – improve your Foundation, and sites get the update on their next page load based on their version strategy.
+
+### Version Strategy
+
+Sites control how Foundation updates are applied: automatic (all updates), minor-only (minor + patch), patch-only (patch only), or pinned (no updates). This configuration is evaluated at runtime, giving sites control over their update stability.
 
 ### The Broader Ecosystem
 
@@ -231,6 +226,10 @@ The Uniweb Framework is open source (GPL-3.0) and free to use. The broader Uniwe
 - **Community** – Open interfaces, examples, and shared best practices
 
 The Framework works standalone or integrates with the full ecosystem as your needs grow.
+
+## Requirements
+
+- Node.js ≥18.0.0
 
 ## Learn More
 

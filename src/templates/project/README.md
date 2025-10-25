@@ -4,34 +4,6 @@ A web development framework built on separation of concerns. **Content** lives i
 
 This architecture means content teams and developers work independently – content editors compose pages using intuitive components, developers build those components.
 
-## Quick Start
-
-Create a new Uniweb project with a starter template:
-
-```bash
-npx @uniwebcms/framework@latest create my-project --template marketing
-```
-
-This creates a complete example with:
-
-- A Foundation showcasing different component patterns
-- A demo site with sample pages and content
-- Components ranging from fully hardcoded to fully parameterized
-
-Start the development server:
-
-```bash
-cd my-project
-npm install
-npx uniweb start
-```
-
-Visit `http://localhost:3000/sites/main/` to see your site.
-
-**Available templates:** `marketing`, `docs`, `corporate`
-
-> Want to start from scratch? Omit `--template` for a minimal project, then add sites and modules as needed.
-
 ## Core Concepts
 
 ### Sites and Foundations
@@ -227,10 +199,6 @@ The Uniweb Framework is open source (GPL-3.0) and free to use. The broader Uniwe
 
 The Framework works standalone or integrates with the full ecosystem as your needs grow.
 
-## Requirements
-
-- Node.js ≥18.0.0
-
 ## Optional: Connect to GitHub
 
 After creating your project locally, you can push it to GitHub:
@@ -266,4 +234,4 @@ This project is licensed under GPL-3.0-or-later.
 
 You are free to use and modify this repository, but if you distribute it (as a template or software package), you must also release your modifications under the same license.
 
-**Important:** Websites and Foundations created using Uniweb are NOT considered distributions and do not need to be licensed under GPL. The content and code you build with Uniweb remain yours to license as you choose.
+**Important:** Websites and Foundations created using the Framework are NOT considered distributions and do not need to be licensed under GPL. The content and code you build with Uniweb remain yours to license as you choose.

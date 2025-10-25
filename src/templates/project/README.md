@@ -34,7 +34,7 @@ At runtime, the Framework connects your content with the appropriate component f
 
 ## Workspace Organization
 
-**Single project, multiple workspaces:** One project can contain multiple sites and Foundations as independent workspaces. Ideal when you to share components across Foundations, or test the same content with different Foundations.
+**Single project, multiple workspaces:** One project can contain multiple sites and Foundations as independent workspaces. Ideal when you want to share components across Foundations, or test the same content with different Foundations.
 
 **Multiple projects:** Alternatively, create separate projects (repositories) for different sites or Foundations. Ideal for independent versioning, separate teams, or publishing Foundations to the registry.
 

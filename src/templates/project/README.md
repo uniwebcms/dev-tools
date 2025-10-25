@@ -132,10 +132,14 @@ uniweb create my-project
 
 **Standard React workflow.** Use any packages, styles, or tools you prefer. The Framework scaffolds a normal React project — no vendor lock-in.
 
-**Optional schemas unlock powerful features.** Add component schemas for your user-facing components:
+**Component schemas define the contract.** Every exposed component requires a schema file—at minimum, defining the component's name. Rich schemas that specify parameters, options, and validation unlock powerful features:
 
-- The local build process uses the component schemas to validate frontmatter options
-- The Uniweb App uses a Foundation's schema to integrate its exposed components as native building blocks in its visual editor
+- Content teams can configure components through frontmatter options
+- The build process validates frontmatter against your schema
+- The Uniweb App integrates your components as native building blocks in its visual editor
+- Your Foundation's complete interface is defined by all component schemas plus Foundation-level settings
+
+Start with minimal schemas during development. Add parameters and options as your components mature. The schema defines what content teams can achieve with each component—from hardcoded sections (minimal schema) to fully configurable building blocks (rich schema).
 
 ### The Power of Specialization
 

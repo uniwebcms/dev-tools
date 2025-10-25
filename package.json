@@ -1,6 +1,6 @@
 {
   "name": "@uniwebcms/dev-tools",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Uniweb CLI for managing sites, modules and components",
   "type": "module",
   "main": "./src/index.js",

@@ -1,18 +1,22 @@
 # Uniweb Framework
 
-A web development framework built on separation of concerns. **Content** lives in sites – markdown files and assets. **Foundations** provide the React components that render that content.
+A web development framework built on separation of concerns. **Content** lives in sites — markdown files and assets. **Foundations** provide the React components that render that content.
 
-This architecture means content teams and developers work independently – content editors compose pages using intuitive components, developers build those components.
+This architecture means content teams and developers work independently — content editors compose pages using intuitive components, developers build those components.
 
 ## Core Concepts
 
 ### Sites and Foundations
 
-- A **site** is your content – pages, assets, and configuration
+- A **site** is your content — pages, assets, and configuration
 - A **Foundation** is a collection of React components designed to work together
 - A **module** is how Foundations are packaged and delivered to sites
 
-Each site links to one Foundation (local or remote) that provides all the components it needs.
+Each site primarily links to one Foundation (local or remote) that provides the components it needs, with optional secondary Foundations for specialized components.
+
+### Foundation Interfaces
+
+A Foundation's _interface_ is the set of components it exposes and their available options. These exposed components are what you can reference in markdown frontmatter. When you write `component: HeroSection`, that component must be in your Foundation's interface. Internal components are implementation details that content teams never reference directly.
 
 ### Content-Driven Rendering
 
@@ -34,7 +38,7 @@ At runtime, the Framework connects your content with the appropriate component f
 
 ## Workspace Organization
 
-**Single project, multiple workspaces:** One project can contain multiple sites and Foundations as independent workspaces. Ideal when you want to share components across Foundations, or test the same content with different Foundations.
+**Single project, multiple workspaces:** One project can contain multiple sites and Foundations as independent workspaces. Ideal when you want to share components across Foundations, or test the same site content with different Foundations.
 
 **Multiple projects:** Alternatively, create separate projects (repositories) for different sites or Foundations. Ideal for independent versioning, separate teams, or publishing Foundations to the registry.
 
@@ -80,7 +84,7 @@ npx @uniwebcms/framework@latest create my-site \
   --module https://modules.uniweb.app/username/marketing
 ```
 
-Ideal for content teams – no local code, just content management.
+Ideal for content teams — no local code, just content management.
 
 **Minimal Project** (add sites/modules as needed):
 
@@ -124,9 +128,9 @@ uniweb create my-project
 
 **Build plug-and-play Foundations.** Create a Foundation and deploy it across multiple sites. When you update components, all connected sites benefit automatically.
 
-**Components without the complexity.** A lightweight JavaScript engine runs in every site and provides all the typical code – localization, analytics, data fetching, forms, uploads. You just write components that receive preprocessed content and render it.
+**Components without the complexity.** A lightweight JavaScript engine runs in every site and provides all the typical code — localization, analytics, data fetching, forms, uploads. You just write components that receive preprocessed content and render it.
 
-**Standard React workflow.** Use any packages, styles, or tools you prefer. The Framework scaffolds a normal React project – no vendor lock-in.
+**Standard React workflow.** Use any packages, styles, or tools you prefer. The Framework scaffolds a normal React project — no vendor lock-in.
 
 **Optional schemas unlock powerful features.** Add component schemas for your user-facing components:
 
@@ -183,7 +187,7 @@ This comprehensive setup eliminates hours of configuration work, allowing you to
 
 ### Module Federation
 
-Webpack technology enabling Foundations to load dynamically at runtime and share dependencies with host sites. Allows Foundation updates to propagate instantly – improve your Foundation, and sites get the update on their next page load based on their version strategy.
+Webpack technology enabling Foundations to load dynamically at runtime and share dependencies with host sites. Allows Foundation updates to propagate instantly — improve your Foundation, and sites get the update on their next page load based on their version strategy.
 
 ### Version Strategy
 
@@ -193,9 +197,9 @@ Sites control how Foundation updates are applied: automatic (all updates), minor
 
 The Uniweb Framework is open source (GPL-3.0) and free to use. The broader Uniweb ecosystem includes:
 
-- **Uniweb App** – Professional visual editor and hosting platform (free for drafts, pay to publish)
-- **Foundation Registry** – Publish and share Foundations with licensing options (coming soon)
-- **Community** – Open interfaces, examples, and shared best practices
+- **Uniweb App** — Professional visual editor and hosting platform (free for drafts, pay to publish)
+- **Foundation Registry** — Publish and share Foundations with licensing options (coming soon)
+- **Community** — Open interfaces, examples, and shared best practices
 
 The Framework works standalone or integrates with the full ecosystem as your needs grow.
 
@@ -222,11 +226,11 @@ git push -u origin main
 
 ## Learn More
 
-- 🏠 **[Framework Website](https://framework.uniweb.app)** – Guides, blog, and comprehensive resources
-- 📘 **[Documentation](https://docs.framework.uniweb.app)** – Complete API reference and tutorials
-- 🚀 **[Uniweb App](https://uniweb.app)** – Visual content editor and hosting platform
-- 💡 **[Examples](https://github.com/uniwebcms/examples)** – Sample Foundations and components
-- 🛠️ **[Community Interfaces](https://github.com/uniwebcms/interfaces)** – Standard component specifications
+- 🏠 **[Framework Website](https://framework.uniweb.app)** — Guides, blog, and comprehensive resources
+- 📘 **[Documentation](https://docs.framework.uniweb.app)** — Complete API reference and tutorials
+- 🚀 **[Uniweb App](https://uniweb.app)** — Visual content editor and hosting platform
+- 💡 **[Examples](https://github.com/uniwebcms/examples)** — Sample Foundations and components
+- 🛠️ **[Community Interfaces](https://github.com/uniwebcms/interfaces)** — Standard component specifications
 
 ## License
 

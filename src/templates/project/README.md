@@ -184,7 +184,7 @@ npx uniweb module publish
 
 Done! Your site is live with managed hosting, visual editor, and automatic updates.
 
-**Looking for self-hosted sites?** See the [deployment guide](docs/deployment-guide.md) for detailed options.
+**Looking for self-hosted sites?** See the [deployment guide](https://github.com/uniwebcms/framework/blob/HEAD/docs/deployment-guide.md) for detailed options.
 
 ## Architecture
 

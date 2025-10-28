@@ -46,7 +46,7 @@ Visit `http://localhost:3000/sites/main/` to see your site.
 
 Each site primarily links to one Foundation (local or remote) that provides the components it needs, with optional secondary Foundations for specialized components.
 
-**Two paths to production:** Local sites can be deployed as self-hosted production sites (free, Git-based collaboration), or used as test sites for your Foundations while your production sites live in [uniweb.app](https://uniweb.app) (visual editor, managed hosting). Both approaches use the same Framework architecture. See [Testing](https://github.com/uniwebcms/framework/blob/HEAD/docs/testing-guide.md) and [Deployment](#deployment) sections for details.
+**Independently hosted.** Unlike traditional React apps, Foundations aren't bundled with sites. Sites in your project typically provide test content for developing Foundation components—actual production sites often live in separate projects or at [uniweb.app](https://www.uniweb.app). See [Testing](https://github.com/uniwebcms/framework/blob/HEAD/docs/testing-guide.md) and [Deployment](#deployment) for production patterns.
 
 ### Foundation Interfaces
 

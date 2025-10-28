@@ -34,7 +34,7 @@ Visit `http://localhost:3000/sites/main/` to see your site.
 
 > Want to start from scratch? Omit `--template` for a minimal project, then add sites and modules as needed.
 
-> **Two paths to production:** Local sites can be deployed as self-hosted production sites (free, Git-based collaboration), or used as development environments while your production site lives in [uniweb.app](https://uniweb.app) (visual editor, managed hosting). Both approaches use the same Framework architecture. See [Testing](https://github.com/uniwebcms/framework/blob/HEAD/docs/testing-guide.md) and [Deployment](#deployment) sections for details.
+**Two paths to production:** Local sites can be deployed as self-hosted production sites (free, Git-based collaboration), or used as development environments while your production site lives in [uniweb.app](https://uniweb.app) (visual editor, managed hosting). Both approaches use the same Framework architecture. See [Testing](https://github.com/uniwebcms/framework/blob/HEAD/docs/testing-guide.md) and [Deployment](#deployment) sections for details.
 
 ## Core Concepts
 
@@ -46,7 +46,7 @@ Visit `http://localhost:3000/sites/main/` to see your site.
 
 Each site primarily links to one Foundation (local or remote) that provides the components it needs, with optional secondary Foundations for specialized components.
 
-> **Foundations scale to your needs.** Build a minimal Foundation for a single site (like any React framework) or create a comprehensive design system with presets, theming, and visual editor integration. The framework supports the entire spectrum—from hardcoded components for one project to product-grade Foundations serving multiple sites with content creators who never touch code.
+**Foundations scale to your needs.** Build a minimal Foundation for a single site (like any React framework) or create a comprehensive design system with presets, theming, and visual editor integration. The framework supports the entire spectrum—from hardcoded components for one project to product-grade Foundations serving multiple sites with content creators who never touch code.
 
 ### Foundation Interfaces
 
